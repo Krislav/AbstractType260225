@@ -1,0 +1,6 @@
+#ifndef STRUCT_AND_METHODS_H
+#define STRUCT_AND_METHODS_H
+
+
+
+#endif
