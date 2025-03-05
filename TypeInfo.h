@@ -9,8 +9,8 @@ typedef struct {
     size_t size;
     BinaryOperation add;
     BinaryOperation multiply;
-    void (*count)(const void* arg, void* result);
     void (*print)(const void*);
+    void (*input)(void* result);
 } TypeInfo;
 
 #endif

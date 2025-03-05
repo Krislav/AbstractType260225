@@ -7,15 +7,15 @@
 #include <LinarFormErrors.h>
 
 typedef struct {
+    void* coef;
+    Coef* next_coef;
+} Coef;
+
+typedef struct {
     Coef* first_coef;
     int quantity;
     TypeInfo* type_info;
 } LinarForm;
-
-typedef struct {
-    void* coef;
-    Coef* next_coef;
-} Coef;
 
 LinarForm* CreateLinarForm(TypeInfo* type_info, int quantity, LinarFormErrors* operation_result);
 void freeLinarForm(LinarForm* linar_form);
