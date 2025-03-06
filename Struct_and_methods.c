@@ -151,7 +151,7 @@ LinarFormErrors printLinarForm(const LinarForm* linar_form){
         }
     }
     else {
-        printf(" --- ");
+        printf(" Linar form is empty");
     }
 
     return LINARFORM_OPERATION_OK;
