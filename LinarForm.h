@@ -1,5 +1,5 @@
-#ifndef STRUCT_AND_METHODS_H
-#define STRUCT_AND_METHODS_H
+#ifndef LINARFORM_H
+#define LINARFORM_H
 
 #include <Integer.h>
 #include <Double.h>
@@ -19,8 +19,10 @@ typedef struct {
 
 LinarForm* CreateLinarForm(TypeInfo* type_info, int quantity, LinarFormErrors* operation_result);
 void freeLinarForm(LinarForm* linar_form);
-LinarFormErrors addLinarForm(const LinarForm* lf1, const LinarForm* lf2, LinarForm* result);
-LinarFormErrors multiplyLinarForm(const LinarForm* linar_form, const void* multiplier, LinarForm* result);
+LinarFormErrors InputLinarForm(LinarForm* linar_form);
+LinarFormErrors ReplaceLinarForm(LinarForm* linar_form, const void* index, const void* data);
+LinarFormErrors addLinarForm(const LinarForm* lf1, const LinarForm* lf2, LinarForm* result, int subtraction);
+LinarFormErrors multiplyLinarForm(LinarForm* linar_form, const void* multiplier);
 LinarFormErrors countLinarForm(const LinarForm* linar_form, void* result);
 LinarFormErrors printLinarForm(const LinarForm* linar_form);
 

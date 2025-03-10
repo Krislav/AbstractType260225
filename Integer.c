@@ -1,7 +1,8 @@
 #include <Integer.h>
 
-void intAdd(const void* arg1, const void* arg2, void* result){
-    *(int*)result = *(int*)arg1 + *(int*)arg1;
+void intAdd(const void* arg1, const void* arg2, void* result, int subtraction){
+    if (subtraction == 1) *(int*)result = *(int*)arg1 - *(int*)arg1;
+    else *(int*)result = *(int*)arg1 + *(int*)arg1;
 }
 
 void intMultiply(const void* arg1, const void* arg2, void* result){
@@ -9,7 +10,8 @@ void intMultiply(const void* arg1, const void* arg2, void* result){
 }
 
 void intPrint(const void* data){
-    printf("%d", *(const int*)data);
+    if (*(const int*)data >= 0) printf("+ %d", *(const int*)data);
+    else printf("- %d", *(const int*)data);
 }
 
 void intInput(void* result){

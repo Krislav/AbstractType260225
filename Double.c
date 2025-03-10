@@ -1,19 +1,21 @@
 #include <Double.h>
 
-void doubleAdd(const void* arg1, const void* arg2, void* result){
-    *(int*)result = *(int*)arg1 + *(int*)arg1;
+void doubleAdd(const void* arg1, const void* arg2, void* result, int subtraction){
+    if (subtraction == 1) *(double*)result = *(double*)arg1 - *(double*)arg1;
+    else *(double*)result = *(double*)arg1 + *(double*)arg1;
 }
 
 void doubleMultiply(const void* arg1, const void* arg2, void* result){
-    *(int*)result = *(int*)arg1 * *(int*)arg1;
+    *(double*)result = *(double*)arg1 * *(double*)arg1;
 }
 
 void doublePrint(const void* data){
-    printf("%d", *(const int*)data);
+    if (*(const double*)data >= 0) printf("+ %lf", *(const double*)data);
+    else printf("- %lf", *(const double*)data);
 }
 
 void doubleInput(void* result){
-    scanf("%d", *(int*)result);
+    scanf("%lf", *(double*)result);
 }
 
 TypeInfo* GetDoubleTypeInfo(){
