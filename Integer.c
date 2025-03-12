@@ -1,12 +1,12 @@
-#include <Integer.h>
+#include "Integer.h"
 
 void intAdd(const void* arg1, const void* arg2, void* result, int subtraction){
-    if (subtraction == 1) *(int*)result = *(int*)arg1 - *(int*)arg1;
-    else *(int*)result = *(int*)arg1 + *(int*)arg1;
+    if (subtraction == 1) *(int*)result = *(int*)arg1 - *(int*)arg2;
+    else *(int*)result = *(int*)arg1 + *(int*)arg2;
 }
 
 void intMultiply(const void* arg1, const void* arg2, void* result){
-    *(int*)result = *(int*)arg1 * *(int*)arg1;
+    *(int*)result = *(int*)arg1 * *(int*)arg2;
 }
 
 void intPrint(const void* data){
@@ -15,7 +15,11 @@ void intPrint(const void* data){
 }
 
 void intInput(void* result){
-    scanf("%d", *(int*)result);
+    scanf("%d", (int*)result);
+}
+
+void intGetZero(void* data){
+    *(int*)data = 0;
 }
 
 TypeInfo* GetIntTypeInfo(){
@@ -26,6 +30,7 @@ TypeInfo* GetIntTypeInfo(){
         INT_TYPE_INFO->multiply = intMultiply;
         INT_TYPE_INFO->print = intPrint;
         INT_TYPE_INFO->input = intInput;
+        INT_TYPE_INFO->getZero = intGetZero;
     }
     return INT_TYPE_INFO;
 }

@@ -9,6 +9,7 @@ void doubleAdd(const void* arg1, const void* arg2, void* result, int subtraction
 void doubleMultiply(const void* arg1, const void* arg2, void* result);
 void doublePrint(const void* data);
 void doubleInput(void* result);
+void doubleGetZero(void* data);
 TypeInfo* GetDoubleTypeInfo();
 
 #endif
