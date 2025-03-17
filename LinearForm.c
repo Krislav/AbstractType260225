@@ -37,7 +37,7 @@ LinearForm* CreateLinearForm(TypeInfo* type_info, int quantity, LinearFormErrors
         return NULL;
     }
 
-    *operation_result = LINEARFORM_OPERATION_OK;
+    *operation_result = LINEAR_FORM_OPERATION_OK;
     return linear_form;
 }
 
@@ -59,7 +59,7 @@ void freeLinearForm(LinearForm* linear_form) {
 }
 
 LinearFormErrors InputLinearForm(LinearForm* linear_form){
-    if (linear_form == NULL) return LINEARFORM_NOT_DEFINED;
+    if (linear_form == NULL) return LINEAR_FORM_NOT_DEFINED;
     if (linear_form->type_info->input == NULL) return OPERATION_NOT_DEFINED;
 
     Coef* current_coef = linear_form->first_coef;
@@ -68,11 +68,11 @@ LinearFormErrors InputLinearForm(LinearForm* linear_form){
         linear_form->type_info->input(current_coef->coef);
         current_coef = current_coef->next_coef;
     }
-    return LINEARFORM_OPERATION_OK;
+    return LINEAR_FORM_OPERATION_OK;
 }
 
 LinearFormErrors ReplaceLinearForm(LinearForm* linear_form, const void* index, const void* data){
-    if (linear_form == NULL) return LINEARFORM_NOT_DEFINED;
+    if (linear_form == NULL) return LINEAR_FORM_NOT_DEFINED;
     if (*(int*)index >= linear_form->quantity || *(int*)index < 0) return INDEX_OUT_OF_BOUNDS;
 
     Coef* current_coef = linear_form->first_coef;
@@ -81,12 +81,12 @@ LinearFormErrors ReplaceLinearForm(LinearForm* linear_form, const void* index, c
     }
     memcpy(current_coef->coef, data, linear_form->type_info->size);
 
-    return LINEARFORM_OPERATION_OK;
+    return LINEAR_FORM_OPERATION_OK;
 }
 
 LinearFormErrors addLinearForm(const LinearForm* lf1, const LinearForm* lf2, LinearForm* result, int subtraction){
-    if (lf1 == NULL || lf2 == NULL || result == NULL) return LINEARFORM_NOT_DEFINED;
-    if (lf1->type_info != lf2->type_info || lf1->type_info != result->type_info) return INCOMPATIBLE_LINEARFORM_TYPES;
+    if (lf1 == NULL || lf2 == NULL || result == NULL) return LINEAR_FORM_NOT_DEFINED;
+    if (lf1->type_info != lf2->type_info || lf1->type_info != result->type_info) return INCOMPATIBLE_LINEAR_FORM_TYPES;
     if (lf1->type_info->add == NULL) return OPERATION_NOT_DEFINED;
     if (lf1->type_info->multiply == NULL) return OPERATION_NOT_DEFINED;
     if (!((result->quantity == lf1->quantity && lf1->quantity >= lf2->quantity) || (result->quantity == lf2->quantity && lf2->quantity >= lf1->quantity))) return RESULT_LENGHT_IS_INCORRECT;
@@ -135,11 +135,11 @@ LinearFormErrors addLinearForm(const LinearForm* lf1, const LinearForm* lf2, Lin
         }
     }
 
-    return LINEARFORM_OPERATION_OK;
+    return LINEAR_FORM_OPERATION_OK;
 }
 
 LinearFormErrors multiplyLinearForm(LinearForm* linear_form, const void* multiplier){
-    if (linear_form == NULL) return LINEARFORM_NOT_DEFINED;
+    if (linear_form == NULL) return LINEAR_FORM_NOT_DEFINED;
     if (linear_form->type_info->multiply == NULL) return OPERATION_NOT_DEFINED;
 
     Coef* lf_current_coef = linear_form->first_coef;
@@ -150,12 +150,11 @@ LinearFormErrors multiplyLinearForm(LinearForm* linear_form, const void* multipl
         lf_current_coef = lf_current_coef->next_coef;
     }
 
-    return LINEARFORM_OPERATION_OK;
+    return LINEAR_FORM_OPERATION_OK;
 }
 
 LinearFormErrors countLinearForm(const LinearForm* linear_form, void* result){
-    if (linear_form == NULL) return LINEARFORM_NOT_DEFINED;
-    // if (result == NULL) return RESULT_NOT_DEFINED;
+    if (linear_form == NULL) return LINEAR_FORM_NOT_DEFINED;
     if (linear_form->type_info->multiply == NULL) return OPERATION_NOT_DEFINED;
     if (linear_form->type_info->add == NULL) return OPERATION_NOT_DEFINED;
 
@@ -188,11 +187,11 @@ LinearFormErrors countLinearForm(const LinearForm* linear_form, void* result){
     }
 
     free(res_cur); free(res_next); free(x); free(elem);
-    return LINEARFORM_OPERATION_OK;
+    return LINEAR_FORM_OPERATION_OK;
 }
 
 LinearFormErrors printLinearForm(const LinearForm* linear_form){
-    if (linear_form == NULL) return LINEARFORM_NOT_DEFINED;
+    if (linear_form == NULL) return LINEAR_FORM_NOT_DEFINED;
     if (linear_form->type_info->print == NULL) return OPERATION_NOT_DEFINED;
 
     if (linear_form->first_coef != NULL) {
@@ -212,5 +211,5 @@ LinearFormErrors printLinearForm(const LinearForm* linear_form){
         printf("Linear form is empty\n");
     }
 
-    return LINEARFORM_OPERATION_OK;
+    return LINEAR_FORM_OPERATION_OK;
 }

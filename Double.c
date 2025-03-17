@@ -10,8 +10,8 @@ void doubleMultiply(const void* arg1, const void* arg2, void* result){
 }
 
 void doublePrint(const void* data){
-    if (*(const double*)data >= 0) printf("+ %lf", *(const double*)data);
-    else printf("- %lf", *(const double*)data);
+    if (*(const double*)data >= 0) printf("+%lf", *(const double*)data);
+    else printf("%lf", *(const double*)data);
 }
 
 void doubleInput(void* result){

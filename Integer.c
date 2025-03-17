@@ -10,8 +10,8 @@ void intMultiply(const void* arg1, const void* arg2, void* result){
 }
 
 void intPrint(const void* data){
-    if (*(const int*)data >= 0) printf("+ %d", *(const int*)data);
-    else printf("- %d", *(const int*)data);
+    if (*(const int*)data >= 0) printf("+%d", *(const int*)data);
+    else printf("%d", *(const int*)data);
 }
 
 void intInput(void* result){

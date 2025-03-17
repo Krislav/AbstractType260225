@@ -1,6 +1,6 @@
 #include "Interface.h"
 
 int main(void) {
-    TestAll();
+    Menu();
     return 0;
 }
