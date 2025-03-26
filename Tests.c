@@ -413,7 +413,7 @@ void TestAddLinearForm(){
     LinearForm* lf132 = CreateLinearForm(GetIntTypeInfo(), 3, &operation_result);
     LinearForm* lf13r = CreateLinearForm(GetIntTypeInfo(), 4, &operation_result);
     operation_result = addLinearForm(lf131, lf132, lf13r, 0);
-    if (operation_result != RESULT_LENGHT_IS_INCORRECT) result_of_test = 1;
+    if (operation_result != RESULT_LENGTH_IS_INCORRECT) result_of_test = 1;
     TestResultPrint(&result_of_test, &test_group_number, &test_number);
     test_number++;
     freeLinearForm(lf131); freeLinearForm(lf132); freeLinearForm(lf13r);
@@ -424,7 +424,7 @@ void TestAddLinearForm(){
     LinearForm* lf142 = CreateLinearForm(GetIntTypeInfo(), 3, &operation_result);
     LinearForm* lf14r = CreateLinearForm(GetIntTypeInfo(), 3, &operation_result);
     operation_result = addLinearForm(lf141, lf142, lf14r, 0);
-    if (operation_result != RESULT_LENGHT_IS_INCORRECT) result_of_test = 1;
+    if (operation_result != RESULT_LENGTH_IS_INCORRECT) result_of_test = 1;
     TestResultPrint(&result_of_test, &test_group_number, &test_number);
     test_number++;
     freeLinearForm(lf141); freeLinearForm(lf142); freeLinearForm(lf14r);
@@ -435,7 +435,7 @@ void TestAddLinearForm(){
     LinearForm* lf152 = CreateLinearForm(GetIntTypeInfo(), 4, &operation_result);
     LinearForm* lf15r = CreateLinearForm(GetIntTypeInfo(), 3, &operation_result);
     operation_result = addLinearForm(lf151, lf152, lf15r, 0);
-    if (operation_result != RESULT_LENGHT_IS_INCORRECT) result_of_test = 1;
+    if (operation_result != RESULT_LENGTH_IS_INCORRECT) result_of_test = 1;
     TestResultPrint(&result_of_test, &test_group_number, &test_number);
     test_number++;
     freeLinearForm(lf151); freeLinearForm(lf152); freeLinearForm(lf15r);

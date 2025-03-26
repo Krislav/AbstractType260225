@@ -89,7 +89,7 @@ LinearFormErrors addLinearForm(const LinearForm* lf1, const LinearForm* lf2, Lin
     if (lf1->type_info != lf2->type_info || lf1->type_info != result->type_info) return INCOMPATIBLE_LINEAR_FORM_TYPES;
     if (lf1->type_info->add == NULL) return OPERATION_NOT_DEFINED;
     if (lf1->type_info->multiply == NULL) return OPERATION_NOT_DEFINED;
-    if (!((result->quantity == lf1->quantity && lf1->quantity >= lf2->quantity) || (result->quantity == lf2->quantity && lf2->quantity >= lf1->quantity))) return RESULT_LENGHT_IS_INCORRECT;
+    if (!((result->quantity == lf1->quantity && lf1->quantity >= lf2->quantity) || (result->quantity == lf2->quantity && lf2->quantity >= lf1->quantity))) return RESULT_LENGTH_IS_INCORRECT;
 
     int x = -1;
     int* minus = &x;

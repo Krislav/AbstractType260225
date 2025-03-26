@@ -8,8 +8,8 @@ typedef enum {
     LINEAR_FORM_NOT_DEFINED = 3,
     OPERATION_NOT_DEFINED = 4,
     NEGATIVE_QUANTITY = 5,
-    INDEX_OUT_OF_BOUNDS = 6,
-    RESULT_LENGHT_IS_INCORRECT = 7
+    INDEX_OUT_OF_BOUNDS = 6, // Лучше Out of range
+    RESULT_LENGTH_IS_INCORRECT = 7
 } LinearFormErrors;
 
 #endif

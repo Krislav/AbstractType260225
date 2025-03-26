@@ -26,7 +26,7 @@ int Home_Page(){
     
     int continue_input = 1;
     while (continue_input == 1) {
-        printf("Enter the selected number: ");
+        printf("Enter the selected number: "); // -------
         scanf("%d", &com);
 
         switch(com){
@@ -64,6 +64,7 @@ int Home_Page(){
                 break;
             case 9:
                 return 1;
+                DeleteAllLF();
                 break;
             default:
                 printf("Incorrect input number\n");
@@ -129,6 +130,12 @@ void DeleteExistingLF(){
 
     NUMBER_OF_LINEAR_FORMS--;
     return;
+}
+
+void DeleteAllLF(){
+    for (int i = 0; i < MAX_NUMBER_OF_LINEAR_FORMS; i++){
+        freeLinearForm(CREATED_LF[i]);
+    }
 }
 
 void AddLF(){
